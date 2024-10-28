@@ -1,0 +1,23 @@
+[
+    {
+        "id":"1",
+        "name": "Delicious Avocado Toast",
+        "date": "2024-04-01",
+        "imageURL": "https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?b=1&s=612x612&w=0&k=20&c=V8oaDpP3mx6rUpRfrt2L9mZCD0_ySlnI7cd4nkgGAb8=",
+        "description": "Indulge in the goodness of a classic avocado toast! Mashed ripe avocados spread over a slice of whole-grain toast, topped with a sprinkle of sea salt and a dash of freshly ground black pepper. This nutritious and satisfying dish is a perfect way to kickstart your day. Avocado toast is not just a trendy option; it's a delightful and wholesome choice for any meal."
+    },
+    {
+        "id":"2",
+        "name": "Mouthwatering Vegan Burgers",
+        "date": "2024-04-02",
+        "imageURL": "https://media.cnn.com/api/v1/images/stellar/prod/140430115517-06-comfort-foods.jpg?q=x_0,y_0,h_720,w_1280,c_fill/w_800",
+        "description": "Savor the flavor of our mouthwatering vegan burgers! Made with a flavorful plant-based patty, fresh lettuce, juicy tomato slices, and a dollop of vegan mayo, all sandwiched between a soft whole-grain bun. These burgers redefine the art of plant-based dining, providing a burst of deliciousness with every bite. Perfect for those craving a cruelty-free and eco-friendly alternative to traditional burgers."
+    },
+    {
+        "id":"3",
+        "name": "Refreshing Green Smoothie Bowl",
+        "date": "2024-04-03",
+        "imageURL": "https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.webp?b=1&s=612x612&w=0&k=20&c=X6CkFGpSKhNZeiii8Pp2M_YrBdqs7tRaBytkGi48a0U=",
+        "description": "Start your day with a refreshing green smoothie bowl! Packed with nutrient-rich ingredients like spinach, kale, banana, and almond milk, this vibrant bowl is a powerhouse of vitamins and minerals. Topped with a medley of fresh fruits, nuts, and seeds, it not only looks appealing but also provides a delicious and energizing way to fuel your body. Embrace the green goodness and nourish yourself with this delightful vegan treat."
+    }
+]

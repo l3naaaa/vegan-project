@@ -1,0 +1,22 @@
+[
+    {
+        "message": "Nice Blog !",
+        "user_id": 1,
+        "user_name": "user1"
+    },
+    {
+        "message": "Wow, this avocado toast recipe looks absolutely delicious! I can almost taste the creamy avocado and crunchy whole-grain toast just by reading the description. Can't wait to try it out for breakfast tomorrow morning",
+        "user_id": 1,
+        "user_name": "user1"
+    },
+    {
+        "message": "protein waffles are amazing and delicious !",
+        "user_id": 3,
+        "user_name": "bee"
+    },
+    {
+        "message": "nutrition facts are amazing! ",
+        "user_id": 4,
+        "user_name": "helen"
+    }
+]

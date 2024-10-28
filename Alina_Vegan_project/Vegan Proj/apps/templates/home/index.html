@@ -1,0 +1,225 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block stylesheets %}
+<style>
+
+    body {
+        padding-top: 2rem;
+    }
+
+    .section-card {
+        background-color: #ffffff; /* Set the background color of the section card */
+        padding: 20px; /* Adjust the padding as needed */
+        margin-bottom: 20px; /* Adjust the margin as needed */
+        border-radius: 20px;
+    }
+
+    @media (min-width: 576px) {
+        .card-group.card-group-scroll {
+            overflow-x: auto;
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            flex-wrap: nowrap;
+        }
+
+        .card-group.card-group-scroll > .card {
+            flex-basis: 35%;
+            max-width: 300px;
+            height: 400px; /* Set a fixed height */
+            display: flex;
+            flex-direction: column;
+            margin: 20px 25px 25px 20px; /* Add margins around each card */
+        }
+
+        .card-group.card-group-scroll > .card img {
+            height: 50%; /* Set the percentage of the card height for the image */
+            object-fit: cover; /* Ensure the image covers the allocated space */
+            border-radius: 10px;
+        }
+
+        .card-group.card-group-scroll > .card .card-body {
+            height: 40%; /* Set the percentage of the card height for the card body */
+            overflow: auto; /* Enable scrolling for the card body if needed */
+        }
+
+        .card-group.card-group-scroll > .card .card-footer {
+            height: 10%; /* Set the percentage of the card height for the card footer */
+        }
+
+        .section-card + .section-card {
+        margin-top: 100px; /* Adjust the margin-top as needed */
+        }
+
+        /* Second Section */
+        .section-card:nth-child(even) {
+            background-color: transparent; /* Set the background color of the middle section to be transparent */
+            margin-top: 100px; /* Adjust the margin-top as needed */
+        }
+
+        #review-card{
+            background-color: #ffffff; /* Set the background color of the middle section to be transparent */
+            margin-top: 100px; /* Adjust the margin-top as needed */
+        }
+
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <!-- First Section -->
+    <div class="section-card">
+        <h2>Vegan Food Near Me</h2>
+        <div class="card-group card-group-scroll">
+            {% for place in places %}
+                {% for img in places[place] %}
+                    <div class="card">
+                        <img src="{{ img }}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ place }} </h5>
+                            <p class="card-text">
+                                <img src="/static/assets/img/map.png" height="15" alt="Logo" loading="lazy" style="margin-right: 5px;">
+                                <strong><em style="font-style: italic;">Location:</em></strong> {{places_desc[place]}}
+                            </p>                            
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="section-card">
+        <h2> Vegan Hotels, Homes, Resorts, and B&Bs </h2>
+        <div class="card-group card-group-scroll">
+            {% for place in places %}
+                {% for img in outdoor_img[place] %}
+                    <div class="card">
+                        <img src="{{ img }}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ place }} </h5>
+                            <p class="card-text">
+                                <img src="/static/assets/img/map.png" height="15" alt="Logo" loading="lazy" style="margin-right: 5px;">
+                                <strong><em style="font-style: italic;">Location:</em></strong> {{places_desc[place]}}
+                            </p> 
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Third Section -->
+    <div class="section-card">
+        <h2> Some Interesting Recipes </h2>
+        <div class="card-group card-group-scroll">
+            {% for meal in meals %}
+                <div class="card">
+                    <img src="{{ meals[meal]['strMealThumb'] }}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ meal }} </h5>
+                        <p class="card-text">
+                            <img src="/static/assets/img/ingredient.png" height="15" alt="Logo" loading="lazy" style="margin-right: 5px;">
+                            <b><em style="font-style: italic;">Ingerdients:</em></b> {{ meals[meal]['all_ingredients'] }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+     <!-- Forthth Section -->
+     <div class="section-card">
+        <h2> Nutrition Facts </h2>
+        <div class="card-group card-group-scroll">
+            {% for item in nutrition_food %}
+                <div class="card">
+                    <img src="{{ item.image }}" class="card-img-top" alt="{{ item.name }}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }} </h5>
+                        <p class="card-text">
+                            <strong>Calories:</strong> {{ item.calories }} <br>
+                            <strong>Serving Size:</strong> {{ item.serving_size_g }}g <br>
+                            <strong>Fat:</strong> {{ item.fat_total_g }}g <br>
+                            <strong>Saturated Fat:</strong> {{ item.fat_saturated_g }}g <br>
+                            <strong>Protein:</strong> {{ item.protein_g }}g <br>
+                            <strong>Sodium:</strong> {{ item.sodium_mg }}mg <br>
+                            <strong>Potassium:</strong> {{ item.potassium_mg }}mg <br>
+                            <strong>Cholesterol:</strong> {{ item.cholesterol_mg }}mg <br>
+                            <strong>Total Carbohydrates:</strong> {{ item.carbohydrates_total_g }}g <br>
+                            <strong>Fiber:</strong> {{ item.fiber_g }}g <br>
+                            <strong>Sugar:</strong> {{ item.sugar_g }}g
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+
+    <!-- Fifth Section -->
+    <div class="section-card">
+        <h2> Buy a meal kit </h2>
+        <div class="card-group card-group-scroll">
+            {% for kit in meal_kit_list %}
+                <div class="card">
+                    <img src="{{ kit['image'] }}" class="card-img-top" alt = "{{ kit['meal_name'] }}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kit['meal_name'] }} </h5>
+                        <p class="card-text">
+                            {{ kit['order_description'] }}
+                        </p>
+                        <a href="https://www.lionsprep.co.uk/?vr=search30&&utm_source=google&utm_medium=cpc&utm_campaign=LP+%7C+UK+%7C+Brand+Pure+%7C+Exact&utm_agid=153511890446&utm_term=lion%20prep&gad_source=1&gclid=CjwKCAiAloavBhBOEiwAbtAJO4LQhIjAFwP0XLWmoTY56ioQ_AvOFKdYzNa17JRPCOpEsvyvFJERQhoC3dcQAvD_BwE&gclsrc=aw.ds" 
+                        class="btn btn-primary" target="_blank">Order Now</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+
+    <!-- Fifth Section -->
+    <div class="section-card">
+        <h2> Reviews </h2>
+        <div class="card-group card-group-scroll">
+            {% for review in reviews %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review['user_name'] }} </h5>
+                        <p class="card-text">
+                            {{ review['message'] }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+    
+    <!-- Commnts and review -->
+    <div class="section-card col-12" id = "review-card">
+        <h2> Leave a Review</h2>
+        <form action="/submit_review" method="POST">
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Leave Comment" class="btn btn-primary">
+            </div>
+        </form>        
+    </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+<script src="/static/assets/js/plugins/chartjs.min.js"></script>
+<script>
+    // Your existing Chart.js code here
+</script>
+
+{% endblock javascripts %}

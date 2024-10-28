@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
+  <title>
+    {% block title %} Profile {% endblock %} 
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/static/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+
+  <style>
+    /* Add your CSS styles here */
+    .profile-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .profile-form {
+        margin-bottom: 20px;
+    }
+    .profile-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .profile-form input[type="password"],
+    .profile-form input[type="file"],
+    .profile-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    .profile-form input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 3px;
+        cursor: pointer;
+
+    .logout-form {
+        align-self: flex-end;
+    }
+    }
+</style>
+
+  {% block stylesheets %}{% endblock stylesheets %}
+
+</head> 
+<body class="g-sidenav-show bg-custome-100 bg-gradient">
+  
+  {% include 'includes/Navigation-bar.html' %}
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    {% block content %}
+
+    <div class="wrapper">
+        <div class="content">
+            <!-- Page Header Start -->
+            <div class="container py-5 px-2 bg-primary">
+                <div class="row py-5 px-4">
+                    <div class="col-sm-6 text-center text-md-left">
+                        <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">Blog Details</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+            <!-- Blog Detail Start -->
+            <div class="container py-5 px-2 bg-white">
+                <div class="row px-4">
+                    <div class="col-12">
+                        <img class="img-fluid mb-4" src="{{ blog['imageURL'] }}" alt="Image">
+                        <h2 class="mb-3 font-weight-bold">{{ blog['name'] }}</h2>
+                        <div class="d-flex">
+                            <p class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i> {{blog['date']}}</p>
+                        </div>
+                        <p>{{ blog['description'] }}</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    {% endblock content %}
+    {% include 'includes/footer.html' %}
+  </main>
+
+
+  {% include 'includes/scripts.html' %}
+
+  <!-- Specific Page JS goes HERE  -->
+  {% block javascripts %}{% endblock javascripts %}
+
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/assets/js/material-dashboard.min.js?v=3.0.0"></script>
+  
+</body> 
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
